@@ -19,6 +19,7 @@ public class Homepage extends AbstractComponents
 	By searchbar = By.id("twotabsearchtextbox");
 	By addresschange = By.id("glow-ingress-line1");
 	By newpincode = By.id("GLUXZipUpdateInput");
+	
 	By cartbutton = By.id("nav-cart-count");
 	By Allmenubutton = By.xpath("//span[@class='hm-icon-label']");
 	By flightbutton = By.xpath("//a[contains(text(),'Flight Tickets')]");

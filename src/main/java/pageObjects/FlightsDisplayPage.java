@@ -19,6 +19,7 @@ WebDriver driver;
 	{
 		List<WebElement> flights = driver.findElements(By.xpath("//div[@class='_8effeee7']"));
 		return flights;
+		
 	}
 	
 

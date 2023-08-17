@@ -42,6 +42,7 @@ return cartlist;
 public void selectitem(String productname) throws InterruptedException  
 {
 	
+	
 	WebElement item = getcartlist().stream().filter(s->s.findElement(By.cssSelector("span[class='a-truncate-cut']")).getText().contains(productname)).findFirst().orElse(null);
 	Thread.sleep(2000);
 	WebElement nextelement = item.findElement(By.xpath("div[@class='sc-list-item-content']//div//div[@class='sc-item-content-group']/child::div//span[@data-feature-id=\"delete\"]//span//input"));

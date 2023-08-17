@@ -13,6 +13,7 @@ public class Productresults{
 	public Productresults(WebDriver driver)
 	{ 
 		this.driver = driver;  
+		
 	}  
 	public List<WebElement> getproductslist()
 	{

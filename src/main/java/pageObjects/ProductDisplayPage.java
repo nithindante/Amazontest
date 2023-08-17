@@ -84,7 +84,7 @@ public Cartpage fileupload(String filepath) throws AWTException, InterruptedExce
 	StringSelection str =  new StringSelection(filepath);
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str,null); //copied the contents to Clipboard
 	Robot rob = new Robot();
-	rob.delay(3000);
+	rob.delay(3000); 
 	rob.keyPress(KeyEvent.VK_CONTROL);
 	rob.keyPress(KeyEvent.VK_V);
 	rob.keyRelease(KeyEvent.VK_V);

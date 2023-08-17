@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.WebDriverWait; 
 
 import AbstractComponents.AbstractComponents;
 
@@ -17,6 +17,7 @@ public class TravellersDetailsPage extends AbstractComponents{
 	WebDriver driver;
 	public TravellersDetailsPage(WebDriver driver)
 	{
+		
 		super(driver);
 		this.driver= driver;
 	}

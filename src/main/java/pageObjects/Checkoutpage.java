@@ -59,6 +59,7 @@ public class Checkoutpage extends AbstractComponents{
 	}
 	public String assertif()
 	{
+		
 		waittill(confirmbutton);
 		String title = driver.findElement(confirmbutton).getText();
 		return title;

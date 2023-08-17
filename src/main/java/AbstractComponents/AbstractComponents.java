@@ -15,6 +15,7 @@ WebDriver driver;
 
 public AbstractComponents(WebDriver driver)
 {
+	
 	this.driver=driver;
 }
 	public void waittill(By element)

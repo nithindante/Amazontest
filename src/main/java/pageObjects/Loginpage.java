@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Loginpage 
 {
 WebDriver driver;
+
 public Loginpage(WebDriver driver)
 {
 	this.driver=driver;

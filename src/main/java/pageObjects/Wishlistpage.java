@@ -15,6 +15,7 @@ public class Wishlistpage extends AbstractComponents{
 WebDriver driver;
 public Wishlistpage(WebDriver driver)
 {
+	
 	super(driver);
 	this.driver =driver;
 }

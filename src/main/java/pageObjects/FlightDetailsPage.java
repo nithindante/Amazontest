@@ -10,6 +10,7 @@ WebDriver driver;
 public FlightDetailsPage(WebDriver driver)
 {
 	super(driver);
+	
 	this.driver=driver;
 }
 By travellerdetailsbutton = By.xpath("//a[contains(text(),'Proceed to traveller details')]");

@@ -28,6 +28,7 @@ public class MainTest extends Basepackage{
 @Test (description="Automating adding items to cart and deleting it ")
 public void additemstocart() throws InterruptedException
 {
+	
 	Homepage obj = new Homepage(driver);
 	Loginpage obj1 = obj.clickSignin();
 	obj1.enterphonedetails("8301087380");
@@ -44,6 +45,8 @@ public void additemstocart() throws InterruptedException
 	obj5.redirecttocart();
 	Cart obj4 =new Cart(driver);
 	obj4.selectitem("Butterfly");	
+	
+	
 	Assert.assertEquals(obj4.assertif(),"Butterfly Rapid Frypan 240 mm Induction Base was removed from Shopping Cart.");
 }
 

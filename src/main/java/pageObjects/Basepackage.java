@@ -32,7 +32,8 @@ public class Basepackage
 	public WebDriver driver;
 	@BeforeMethod
 	public void setupbrowser()							//initialising driver and getting the website link to automate
-	{					
+	{		
+		
 		driver = new ChromeDriver();
 		driver.get("https://www.amazon.in"); 
 		driver.manage().window().maximize();
