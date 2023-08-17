@@ -28,7 +28,7 @@ public class MainTest extends Basepackage{
 @Test (description="Automating adding items to cart and deleting it ")
 public void additemstocart() throws InterruptedException
 {
-	
+	 
 	Homepage obj = new Homepage(driver);
 	Loginpage obj1 = obj.clickSignin();
 	obj1.enterphonedetails("8301087380");

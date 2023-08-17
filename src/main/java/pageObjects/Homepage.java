@@ -16,7 +16,7 @@ public class Homepage extends AbstractComponents
 		this.driver = driver; 
 	}   
 	By signin = By.id("nav-link-accountList");
-	By searchbar = By.id("twotabsearchtextbox");
+	By searchbar = By.id("twotabsearchtextbox"); 
 	By addresschange = By.id("glow-ingress-line1");
 	By newpincode = By.id("GLUXZipUpdateInput");
 	

@@ -13,13 +13,13 @@ public class Productresults{
 	public Productresults(WebDriver driver)
 	{ 
 		this.driver = driver;  
-		
+		 
 	}  
 	public List<WebElement> getproductslist()
 	{
 	List<WebElement> productslist = driver.findElements(By.cssSelector("img[class='s-image']"));
 	return productslist;
-	} 
+	}  
 	
 	void scrollitem(WebElement item)
 	{

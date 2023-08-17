@@ -19,7 +19,7 @@ public Cartpage(WebDriver driver)
 By addtocheckoutbutton = By.name("proceedToRetailCheckout");
 By redirecttocartbutton = By.id("nav-cart-count-container");
 By searchbar = By.id("twotabsearchtextbox");
-public Checkoutpage addtocheckout()
+public Checkoutpage addtocheckout() 
 {
 	driver.findElement(addtocheckoutbutton).click();
 	return new Checkoutpage(driver);

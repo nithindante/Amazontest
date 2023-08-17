@@ -28,7 +28,7 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
 public class Basepackage 
-{
+{ 
 	public WebDriver driver;
 	@BeforeMethod
 	public void setupbrowser()							//initialising driver and getting the website link to automate

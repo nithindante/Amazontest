@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait; 
 
 import AbstractComponents.AbstractComponents;
-
+ 
 public class TravellersDetailsPage extends AbstractComponents{
 
 	WebDriver driver;

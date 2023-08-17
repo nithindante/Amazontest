@@ -10,7 +10,7 @@ import AbstractComponents.AbstractComponents;
 
 public class FlightsDisplayPage extends AbstractComponents{
 WebDriver driver;
-	public FlightsDisplayPage(WebDriver driver) {
+	public FlightsDisplayPage(WebDriver driver) { 
 		super(driver);
 		this.driver=driver;
 	}

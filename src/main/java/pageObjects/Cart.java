@@ -14,7 +14,7 @@ WebDriver driver;
 public Cart(WebDriver driver)
 {
 	super(driver);
-	this.driver=driver;
+	this.driver=driver; 
 }
 By addtocheckoutbutton = By.name("proceedToRetailCheckout");
 By confirmation = By.xpath("//*[text()=\" was removed from Shopping Cart. \"]");

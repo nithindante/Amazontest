@@ -9,7 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import AbstractComponents.AbstractComponents;
-
+ 
 public class Wishlistpage extends AbstractComponents{
 
 WebDriver driver;

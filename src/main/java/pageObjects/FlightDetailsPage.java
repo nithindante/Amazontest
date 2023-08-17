@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import AbstractComponents.AbstractComponents;
 
-public class FlightDetailsPage extends AbstractComponents{
+public class FlightDetailsPage extends AbstractComponents{ 
 WebDriver driver;
 public FlightDetailsPage(WebDriver driver)
 {

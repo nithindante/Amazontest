@@ -52,9 +52,9 @@ public class Checkoutpage extends AbstractComponents{
 	{
 		Thread.sleep(2000);
 		driver.findElement(usethisaddress).click();
-	}
+	} 
 	public void clickusethispayment() {
-		waittill(paymentbutton);
+		waittill(paymentbutton); 
 		driver.findElement(paymentbutton).click();		
 	}
 	public String assertif()

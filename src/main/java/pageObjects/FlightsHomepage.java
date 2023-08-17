@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import AbstractComponents.AbstractComponents;
+import AbstractComponents.AbstractComponents; 
 
 public class FlightsHomepage extends AbstractComponents{
 WebDriver driver;
