@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 
 import AbstractComponents.AbstractComponents;
 
-public class Cartpage extends AbstractComponents{
+public class Cartpage extends AbstractComponents{					// The page that pops up when you click on add to cart and between cart. 
 WebDriver driver;
 public Cartpage(WebDriver driver)
 {
@@ -19,20 +19,20 @@ public Cartpage(WebDriver driver)
 By addtocheckoutbutton = By.name("proceedToRetailCheckout");
 By redirecttocartbutton = By.id("nav-cart-count-container");
 By searchbar = By.id("twotabsearchtextbox");
-public Checkoutpage addtocheckout() 
+public Checkoutpage addToCheckout() 								// Clicks on Add to checkout button
 {
 	driver.findElement(addtocheckoutbutton).click();
 	return new Checkoutpage(driver);
 }
 
-public void redirecttocart() throws InterruptedException
+public void redirectToCart() throws InterruptedException			// Redirects to Cart
 {
 	
-	Thread.sleep(4000);
+	waittill(redirecttocartbutton);
 	driver.findElement(redirecttocartbutton).click();
 }
 
-public Productresults searchitem(String productname)
+public Productresults searchItem(String productname)				// Searches the the desired item within Search bar
 {
 	driver.findElement(searchbar).sendKeys(productname + Keys.ENTER);
 	return new Productresults(driver);		

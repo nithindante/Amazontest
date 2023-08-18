@@ -42,7 +42,10 @@
     <artifactId>extentreports</artifactId>
     <version>3.1.2</version>
 </dependency>
-
-	 </dependencies>
- 
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>5.0.6</version>
+    </dependency>
+</dependencies> 
 </project>

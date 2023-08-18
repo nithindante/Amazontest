@@ -11,7 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelData {
 
-	public static int getrowcount(String path,String sh) throws IOException
+	public static int getRowCount(String path,String sh) throws IOException				//creating a method to get the row from the Excel Sheet
 	{
 		 
 		try
@@ -20,14 +20,14 @@ public class ExcelData {
 		FileInputStream fp = new FileInputStream(f);
 		XSSFWorkbook wb = new XSSFWorkbook(fp);
 		XSSFSheet sh1 = wb.getSheet(sh);
-		return sh1.getLastRowNum(); 		
+		return sh1.getLastRowNum(); 													//gets the last row number
 		} 
 		catch ( Exception e)
 		{
 			return 0;
 		} 
 	}
-	public static String getcellvalue(String path, String sh, int i, int c) throws IOException {
+	public static String getCellValue(String path, String sh, int i, int c) throws IOException {		// gets the cell value from the Excel Sheet
 		try 
 		
 		{
@@ -36,7 +36,7 @@ public class ExcelData {
 		XSSFWorkbook wb = new XSSFWorkbook(fp);
 		XSSFSheet sh1 = wb.getSheet(sh);
 		XSSFCell cell = sh1.getRow(i).getCell(c);
-		return cell.getStringCellValue();
+		return cell.getStringCellValue();																//gets the exact cell value
 		}
 		catch ( Exception e)
 		{
