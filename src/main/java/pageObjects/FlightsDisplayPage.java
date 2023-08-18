@@ -16,7 +16,7 @@ WebDriver driver;
 	}
 	By bookButton =  By.xpath("//button[contains(text(),'Book')]");
 	public List<WebElement> getFlightsList()							//selecting the list of flights
-	{
+	{  
 		List<WebElement> flights = driver.findElements(By.xpath("//div[@class='_8effeee7']"));
 		return flights;
 		

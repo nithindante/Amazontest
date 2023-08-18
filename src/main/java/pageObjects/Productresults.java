@@ -14,12 +14,12 @@ public class Productresults{				// The page that represents the Products results
 	{ 
 		this.driver = driver;  
 		 
-	}  
+	}   
 	public List<WebElement> getProductsList()				// Getting the list of all the products displayed 
 	{
 	List<WebElement> productslist = driver.findElements(By.cssSelector("img[class='s-image']"));
 	return productslist;
-	}  	
+	}   	
 	
 	public ProductDisplayPage selectItem(String productname)  	//Selecting the desired item, and returning a Constructor for Product Display page 
 	{		

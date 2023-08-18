@@ -19,12 +19,12 @@ public Wishlistpage(WebDriver driver)
 	super(driver);
 	this.driver =driver;
 }
-
+ 
 By deletewishlist = By.xpath("//span[@id='delete-button-I3L620HYIDZSJW']//span//input");
 By deletedicon = By.xpath("//div[text()='Deleted']");
 By searchbutton = By.id("twotabsearchtextbox");
 public void clickondelete()										//Click on Delete button 
-{
+{ 
 	driver.findElement(deletewishlist).click();
 }
 public void selectitemtodelete(String itemname)  				//Selecting the desired item via Streams method

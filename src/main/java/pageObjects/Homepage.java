@@ -14,7 +14,7 @@ public class Homepage extends AbstractComponents						//Represents the Home page
 	{
 		super(driver);
 		this.driver = driver; 
-	}   
+	}     
 	By signIn = By.id("nav-link-accountList");
 	By searchBar = By.id("twotabsearchtextbox"); 
 	By addressChange = By.id("glow-ingress-line1");

@@ -65,7 +65,7 @@ public class TravellersDetailsPage extends AbstractComponents{			//Represents th
 				while(!driver.findElement(By.xpath("//a[@class='rc-calendar-year-select']")).getText().equalsIgnoreCase(year))			// if not the desired year, click on previous year
 				{
 					driver.findElement(By.xpath("//a[@title='Previous month (PageUp)']")).click();			
-				}
+				} 
 				while(!driver.findElement(By.xpath("//a[@class='rc-calendar-month-select']")).getText().equalsIgnoreCase(month))  // if not the desired month, click on previous month
 				{  
 					driver.findElement(By.xpath("//a[@title='Previous month (PageUp)']")).click();
@@ -75,7 +75,7 @@ public class TravellersDetailsPage extends AbstractComponents{			//Represents th
 					dates.click();			
 					getrows().get(1).findElement(By.id("fl_tr_title")).click();
 					getrows().get(1).findElement(By.id("fl_tr_title")).click();		
-					driver.findElement(addChildButton).click();
+					 driver.findElement(addChildButton).click();
 	}
 	
 	public void clickCheckBoxes()																									//Clicking on check boxes

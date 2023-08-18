@@ -14,10 +14,9 @@ public Loginpage(WebDriver driver)
 {
 	this.driver=driver;
 }   
- 
+  
 By phoneno = By.id("ap_email");
 By passwrd = By.id("ap_password");
-
 public void enterphonedetails(String phonenumber) {										//Entering the phone number details
 	driver.findElement(phoneno).sendKeys(phonenumber + Keys.ENTER);	
 } 

@@ -7,10 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import AbstractComponents.AbstractComponents;
-
+ 
 public class Cart extends AbstractComponents{						// Cart in the Amazon website
-WebDriver driver;
-
+WebDriver driver; 
+ 
 public Cart(WebDriver driver)
 {
 	super(driver);

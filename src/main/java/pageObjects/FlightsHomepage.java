@@ -28,7 +28,7 @@ public void enterDetailsOfFromAirport(String departureairport) throws Interrupte
 	waittill(dropdown);
 	Thread.sleep(2000);
 	driver.findElement(dropdown).click();
-}
+}  
 public void enterDetailsOfToAirport(String arrivalairport) throws InterruptedException						// Creating method to enter details of To airport
 {	
 	waittill(toAirport);

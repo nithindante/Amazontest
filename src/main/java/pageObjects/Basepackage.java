@@ -39,7 +39,6 @@ public class Basepackage
 	@BeforeMethod
 	public void setupbrowser(Method method)							//Initializing driver and getting the website link to automate
 	{		
-		
 		driver = new ChromeDriver();
 		String website= "https://www.amazon.in";
 		driver.get(website); 

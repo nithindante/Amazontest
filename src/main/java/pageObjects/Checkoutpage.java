@@ -29,7 +29,7 @@ public class Checkoutpage extends AbstractComponents{    // The page that repres
 	By thisAddress =  By.id("shipToThisAddressButton");
 	By paymentConfirmation = By.xpath("//*[@id=\"payment\"]/div[3]/div/div/div[1]/div/h3");
 	public void enterNewAddress() 																// Click on new address 
-	{
+	{  
 		waittill(newAddressLink);
 		driver.findElement(newAddressLink).click();
 	}

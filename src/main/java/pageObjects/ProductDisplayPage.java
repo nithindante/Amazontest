@@ -65,14 +65,15 @@ public void goToCart()
 public void clickOnExtraCart() {												//if the pop up opens up once you add a product to cart
 	waittill(extraCart);
 	driver.findElement(extraCart).click();	
-}
+} 
 public void clickOnExtraPopupToCheckout()										//Clicking on the Checkout button in the extra popup 
 {
 	waittill(extraPopup);
+	
 	driver.findElement(extraPopup).click();
 }
 public void clickCustomiseButton() throws InterruptedException
-{
+{ 
 	driver.findElement(customiseButon).click();
 	waittill(customiseButon);
 	Thread.sleep(2000);

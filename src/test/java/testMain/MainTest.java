@@ -59,13 +59,14 @@ public void checkingout() throws InterruptedException
 	obj1.enterpassworddetails("Sreekuty");
 	Productresults obj2 = obj.searchItem("Speakers");
 	ProductDisplayPage obj3 = obj2.selectItem("boAt Stone 180 5W Bluetooth Speaker with Upto 10 Hours Playback, 1.75\" Driver, IPX7 & TWS Feature(Black)");
-	obj3.tabHandling();
+	obj3.tabHandling(); 
 	obj3.clickOnAddToCart();
 	obj3.clickOnExtraCart();	
 	Cartpage obj4 = new Cartpage(driver);
 	obj4.addToCheckout();
+	 
 	Checkoutpage obj5 =  new Checkoutpage(driver);
-	obj5.enterNewAddress();
+	obj5.enterNewAddress(); 
 	obj5.enterDetailsOfNewAddress("nithin rajkumar", "9995006380", "682309", "Vykundam,Sundernagar,Chitrapuzha", "Chitrapuzha,Tripunithura", "near petrol bunk", "Ernakulam");
 	obj5.clickUseThisAddress();
 	obj5.clickUseThisAddress();

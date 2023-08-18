@@ -24,10 +24,5 @@ public AbstractComponents(WebDriver driver)
 		wait.until(ExpectedConditions.elementToBeClickable((element)));
 	}
 
-	public String assertif(By element)
-	{  
-		waittill(element);
-		String title = driver.findElement(element).getText();
-		return title;
-	}
+
 }

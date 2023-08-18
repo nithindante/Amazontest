@@ -12,7 +12,7 @@ public FlightDetailsPage(WebDriver driver)
 	super(driver);
 	
 	this.driver=driver;
-}
+}  
 By travellerDetailsButton = By.xpath("//a[contains(text(),'Proceed to traveller details')]");
 public TravellersDetailsPage clickOnTravellerDetails() {				//clicking the Button to redirect to Travelers details page and returning its Constructor as well. 
 	waittill(travellerDetailsButton);
