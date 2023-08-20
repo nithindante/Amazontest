@@ -12,9 +12,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
 
-public class ProductDisplayPage extends AbstractComponents{ 
+public class ProductDisplayPage extends CommonMethods{ 
 WebDriver driver;
 public ProductDisplayPage(WebDriver driver)   
 {
@@ -46,40 +46,40 @@ public void tabHandling() 														//Switching windows
 	} 
 }
 public void clickOnAddToCart() throws InterruptedException {					//Clicking on add to cart 
-	waittill(cartButton);
+	waitTill(cartButton);
 	driver.findElement(cartButton).click();	
 }	
 public void addToWishlist()														//Clicking on Add to Wishlist
 {
 	driver.findElement(addToWishlist).click();
 }
-public Wishlistpage viewWishlist() {											
-	waittill(viewWishlist);
+public WishlistPage viewWishlist() {											
+	waitTill(viewWishlist);
 	driver.findElement(viewWishlist).click();
-	return new Wishlistpage(driver); 
+	return new WishlistPage(driver); 
 }
 public void goToCart()
 {
 	driver.findElement(cartPageButton).click();
 }
 public void clickOnExtraCart() {												//if the pop up opens up once you add a product to cart
-	waittill(extraCart);
+	waitTill(extraCart);
 	driver.findElement(extraCart).click();	
 } 
 public void clickOnExtraPopupToCheckout()										//Clicking on the Checkout button in the extra popup 
 {
-	waittill(extraPopup);
+	waitTill(extraPopup);
 	
 	driver.findElement(extraPopup).click();
 }
 public void clickCustomiseButton() throws InterruptedException
 { 
 	driver.findElement(customiseButon).click();
-	waittill(customiseButon);
+	waitTill(customiseButon);
 	Thread.sleep(2000);
 	driver.findElement(uploadButton).click();
 }
-public Cartpage fileUpload(String filepath) throws AWTException, InterruptedException {			// Creating the method to upload image into our Website and cusatomise the photo frame 
+public CartPage fileUpload(String filepath) throws AWTException, InterruptedException {			// Creating the method to upload image into our Website and cusatomise the photo frame 
 	StringSelection str =  new StringSelection(filepath);
 	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str,null); 					//copied the contents to Clipboard 
 	Robot rob = new Robot();																	//Created Robots class, so that we use the following action: Control+ V and Enter
@@ -89,9 +89,9 @@ public Cartpage fileUpload(String filepath) throws AWTException, InterruptedExce
 	rob.keyRelease(KeyEvent.VK_V);
 	rob.keyRelease(KeyEvent.VK_CONTROL);
 	rob.keyPress(KeyEvent.VK_ENTER);
-	waittill(customiseAddToCart);
+	waitTill(customiseAddToCart);
 	driver.findElement(customiseAddToCart).click();
-	return new Cartpage(driver);
+	return new CartPage(driver);
 }
 
 public void setQuantity(int num)																		//Selecting the Quantity via dropdown

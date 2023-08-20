@@ -4,13 +4,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import AbstractComponents.AbstractComponents;
+
+import commonMethods.CommonMethods;
 
 
-public class Homepage extends AbstractComponents						//Represents the Home page
+public class HomePage extends CommonMethods						//Represents the Home page
 {
 	WebDriver driver;
-	public Homepage(WebDriver driver)  
+	public HomePage(WebDriver driver)  
 	{
 		super(driver);
 		this.driver = driver; 
@@ -22,15 +23,15 @@ public class Homepage extends AbstractComponents						//Represents the Home page
 	By cartButton = By.id("nav-cart-count");
 	By allMenuButton = By.xpath("//span[@class='hm-icon-label']");
 	By flightButton = By.xpath("//a[contains(text(),'Flight Tickets')]");
-	public  Loginpage clickSignin()															//Click on Sign in button 
+	public  LoginPage clickSignin()															//Click on Sign in button 
 	{    
 		driver.findElement(signIn).click();
-		return new Loginpage(driver);
+		return new LoginPage(driver);
 	}   
-	public Productresults searchItem(String productname)										// Enter the Desired item in the Search bar
+	public ProductResultsPage searchItem(String productname)										// Enter the Desired item in the Search bar
 	{
 		driver.findElement(searchBar).sendKeys(productname + Keys.ENTER);
-		return new Productresults(driver);		
+		return new ProductResultsPage(driver);		
 	} 
 	public void clickOnAddress()															//Clicking on Address tab 
 	{
@@ -38,7 +39,7 @@ public class Homepage extends AbstractComponents						//Represents the Home page
 	}
 	public void enterPincode(String pocode)													//Changing the post code 
 	{
-		waittill(newpinCode);
+		waitTill(newpinCode);
 		driver.findElement(newpinCode).clear();
 		driver.findElement(newpinCode).sendKeys(pocode+Keys.ENTER);		
 	}
@@ -47,10 +48,10 @@ public class Homepage extends AbstractComponents						//Represents the Home page
 	{
 		driver.findElement(allMenuButton).click();		
 	}
-	public FlightsHomepage clickFlightsMenu()												//Click on Booking flight and redirects to Flights home page 
+	public FlightsHomePage clickFlightsMenu()												//Click on Booking flight and redirects to Flights home page 
 	{
-		waittill(flightButton);	
+		waitTill(flightButton);	
 		driver.findElement(flightButton).click();	
-		return new FlightsHomepage(driver);
+		return new FlightsHomePage(driver);
 	}
 }

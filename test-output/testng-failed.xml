@@ -7,10 +7,11 @@
         <methods>
           <include name="uploadphotos"/>
           <include name="abookingflight"/>
-          <include name="additemstocart"/>
           <include name="closebrowser"/>
           <include name="checkingout"/>
           <include name="setupbrowser"/>
+          <include name="teardown"/>
+          <include name="extendsetup"/>
         </methods>
       </class> <!-- testMain.MainTest -->
     </classes>

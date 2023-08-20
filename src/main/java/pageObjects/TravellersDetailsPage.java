@@ -8,11 +8,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait; 
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
  
-public class TravellersDetailsPage extends AbstractComponents{			//Represents the Page that shows Travelers Details Page 
+public class TravellersDetailsPage extends CommonMethods{			//Represents the Page that shows Travelers Details Page 
 
 	WebDriver driver;
 	public TravellersDetailsPage(WebDriver driver)
@@ -42,7 +42,7 @@ public class TravellersDetailsPage extends AbstractComponents{			//Represents th
 	}
 	public void enterAdultsDetails(String fname,String lname,String title)					//entering the details of new Adult 
 	{
-		waittill(addNewAdult);
+		waitTill(addNewAdult);
 		getrows().get(0).findElement(By.xpath("parent::div/preceding-sibling::div//span")).click();
 		getrows().get(0).findElement(By.id("input-firstName")).sendKeys(fname);
 		getrows().get(0).findElement(By.id("input-lastName")).sendKeys(lname);
@@ -53,7 +53,7 @@ public class TravellersDetailsPage extends AbstractComponents{			//Represents th
 	  
 	public void enterDetailsOfChild(String fname,String lname,String year,String month,String exactdate) throws InterruptedException
 	{	
-		waittill(addNewChild);																		//entering the details of new child
+		waitTill(addNewChild);																		//entering the details of new child
 		getrows().get(1).findElement(By.xpath("parent::div/preceding-sibling::div//span")).click();
 		
 		getrows().get(1).findElement(By.id("input-firstName")).sendKeys(fname);
@@ -95,7 +95,7 @@ public class TravellersDetailsPage extends AbstractComponents{			//Represents th
 	} 
 	
 	public String assertIf() {																								// Confirming that Review booking text is formed and getting the text
-		waittill(reviewBooking);
+		waitTill(reviewBooking);
 		String title = driver.findElement(reviewBooking).getText();
 		return title;
 	}

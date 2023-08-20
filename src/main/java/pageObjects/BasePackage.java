@@ -31,13 +31,13 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 
-public class Basepackage 
+public class BasePackage 
 { 
 	public WebDriver driver;
 	public ExtentReports extent;
     public ExtentTest test;
 	@BeforeMethod
-	public void setupbrowser(Method method)							//Initializing driver and getting the website link to automate
+	public void setupBrowser(Method method)							//Initializing driver and getting the website link to automate
 	{		
 		driver = new ChromeDriver();
 		String website= "https://www.amazon.in";
@@ -47,7 +47,7 @@ public class Basepackage
 	} 	
 	
 	@BeforeSuite
-	public void extendsetup()												// Creating a method to use Extentreports() and create a "extent.html"file
+	public void extendSetup()												// Creating a method to use Extentreports() and create a "extent.html"file
 	{
 		extent = new ExtentReports();
 		ExtentSparkReporter spark = new ExtentSparkReporter("extent.html");
@@ -55,7 +55,7 @@ public class Basepackage
 	}
 	@AfterMethod
 	
-	 public void closebrowser(ITestResult result)			//closing the browser after each test and getting the pass or fail status 
+	 public void closeBrowser(ITestResult result)			//closing the browser after each test and getting the pass or fail status 
 	{
 		if(result.getStatus() == ITestResult.FAILURE) {
             test.log(Status.FAIL, "Test Case Failed is "+result.getName());
@@ -69,7 +69,7 @@ public class Basepackage
 		driver.quit();
     }
 	@AfterSuite
-	public void teardown()							
+	public void tearDown()							
 	{
 		 extent.flush();
 	}

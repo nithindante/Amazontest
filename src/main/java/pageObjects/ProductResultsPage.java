@@ -6,11 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-public class Productresults{				// The page that represents the Products results page
+public class ProductResultsPage{				// The page that represents the Products results page
  
 	WebDriver driver;	
 	
-	public Productresults(WebDriver driver)
+	public ProductResultsPage(WebDriver driver)
 	{ 
 		this.driver = driver;  
 		 

@@ -3,9 +3,9 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
 
-public class FlightDetailsPage extends AbstractComponents{ 						// the page that represents that comes before we enter Traveler details 
+public class FlightDetailsPage extends CommonMethods{ 						// the page that represents that comes before we enter Traveler details 
 WebDriver driver;
 public FlightDetailsPage(WebDriver driver)
 {
@@ -15,7 +15,7 @@ public FlightDetailsPage(WebDriver driver)
 }  
 By travellerDetailsButton = By.xpath("//a[contains(text(),'Proceed to traveller details')]");
 public TravellersDetailsPage clickOnTravellerDetails() {				//clicking the Button to redirect to Travelers details page and returning its Constructor as well. 
-	waittill(travellerDetailsButton);
+	waitTill(travellerDetailsButton);
 	driver.findElement(travellerDetailsButton).click();
 	return new TravellersDetailsPage(driver);
 }

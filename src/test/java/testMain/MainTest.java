@@ -7,33 +7,33 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.Basepackage;
+import pageObjects.BasePackage;
 import pageObjects.Cart;
-import pageObjects.Cartpage;
-import pageObjects.Checkoutpage;
+import pageObjects.CartPage;
+import pageObjects.CheckoutPage;
 import pageObjects.ExcelData;
 import pageObjects.FlightDetailsPage;
 import pageObjects.FlightsDisplayPage;
-import pageObjects.FlightsHomepage;
-import pageObjects.Homepage;
-import pageObjects.Loginpage;
+import pageObjects.FlightsHomePage;
+import pageObjects.HomePage;
+import pageObjects.LoginPage;
 import pageObjects.ProductDisplayPage;
-import pageObjects.Productresults;
+import pageObjects.ProductResultsPage;
 import pageObjects.TravellersDetailsPage;
-import pageObjects.Wishlistpage;
+import pageObjects.WishlistPage;
 
-public class MainTest extends Basepackage{
+public class MainTest extends BasePackage{
 	
 	
 @Test (description="Automating adding items to cart and deleting it ")
 public void additemstocart() throws InterruptedException
 {
 	 
-	Homepage obj = new Homepage(driver);
-	Loginpage obj1 = obj.clickSignin();
-	obj1.enterphonedetails("8301087380"); 
-	obj1.enterpassworddetails("Sreekuty");
-	Productresults obj2 = obj.searchItem("Frypans");
+	HomePage obj = new HomePage(driver); 
+	LoginPage obj1 = obj.clickSignin();
+	obj1.enterPhoneDetails("8301087380"); 
+	obj1.enterPasswordDetails("Sreekuty");
+	ProductResultsPage obj2 = obj.searchItem("Frypans");
 	ProductDisplayPage obj3 = obj2.selectItem("Butterfly Rapid Frypan 240 mm Induction Base");
 	obj3.tabHandling();
 	obj3.clickOnAddToCart();
@@ -41,7 +41,7 @@ public void additemstocart() throws InterruptedException
 	obj2.selectItem("ZEBRONICS Zeb-Fame 5watts 2.0 Multi Media Speakers with AUX, USB and Volume Control (Black)");
 	obj3.tabHandling();	
 	obj3.clickOnAddToCart();
-	Cartpage obj5 = new Cartpage(driver);
+	CartPage obj5 = new CartPage(driver);
 	obj5.redirectToCart();
 	Cart obj4 =new Cart(driver);
 	obj4.selectItem("Butterfly");	
@@ -53,19 +53,19 @@ public void additemstocart() throws InterruptedException
 @Test (description="adding items to cart and checking out")
 public void checkingout() throws InterruptedException
 {
-	Homepage obj = new Homepage(driver);
-	Loginpage obj1 = obj.clickSignin();
-	obj1.enterphonedetails("8301087380");
-	obj1.enterpassworddetails("Sreekuty");
-	Productresults obj2 = obj.searchItem("Speakers");
+	HomePage obj = new HomePage(driver);
+	LoginPage obj1 = obj.clickSignin();
+	obj1.enterPhoneDetails("8301087380");
+	obj1.enterPasswordDetails("Sreekuty");
+	ProductResultsPage obj2 = obj.searchItem("Speakers");
 	ProductDisplayPage obj3 = obj2.selectItem("boAt Stone 180 5W Bluetooth Speaker with Upto 10 Hours Playback, 1.75\" Driver, IPX7 & TWS Feature(Black)");
 	obj3.tabHandling(); 
 	obj3.clickOnAddToCart();
 	obj3.clickOnExtraCart();	
-	Cartpage obj4 = new Cartpage(driver);
+	CartPage obj4 = new CartPage(driver);
 	obj4.addToCheckout();
 	 
-	Checkoutpage obj5 =  new Checkoutpage(driver);
+	CheckoutPage obj5 =  new CheckoutPage(driver);
 	obj5.enterNewAddress(); 
 	obj5.enterDetailsOfNewAddress("nithin rajkumar", "9995006380", "682309", "Vykundam,Sundernagar,Chitrapuzha", "Chitrapuzha,Tripunithura", "near petrol bunk", "Ernakulam");
 	obj5.clickUseThisAddress();
@@ -77,35 +77,35 @@ public void checkingout() throws InterruptedException
 	@Test (description="Adding items to wishlist and deleting the desired ones")
 	public void addingitemstowishlist()
 	{
-		Homepage obj = new Homepage(driver);
-		Loginpage obj1 = obj.clickSignin();
-		obj1.enterphonedetails("8301087380");
-		obj1.enterpassworddetails("Sreekuty");
+		HomePage obj = new HomePage(driver);
+		LoginPage obj1 = obj.clickSignin();
+		obj1.enterPhoneDetails("8301087380");
+		obj1.enterPasswordDetails("Sreekuty");
 		obj.clickOnAddress();
 		obj.enterPincode("682309");
-		Productresults obj2 = obj.searchItem("Speakers");
+		ProductResultsPage obj2 = obj.searchItem("Speakers");
 		ProductDisplayPage obj3 = obj2.selectItem("boAt Stone 180 5W Bluetooth Speaker with Upto 10 Hours Playback, 1.75\" Driver, IPX7 & TWS Feature(Black)");
 		obj3.tabHandling();
 		obj3.addToWishlist();
-		Wishlistpage obj4 = obj3.viewWishlist();
-		obj4.searchitem("Frypan");
+		WishlistPage obj4 = obj3.viewWishlist();
+		obj4.searchItem("Frypan");
 		obj2.selectItem("Hawkins Futura 26 cm Frying Pan, Non Stick Fry Pan with Glass Lid, Frypan, Black (NF26G)");
 		obj3.tabHandling();
 		obj3.addToWishlist();
 		obj3.viewWishlist();
-		obj4.selectitemtodelete("boAt");	
-		Assert.assertEquals(obj4.assertif(),"Deleted");
+		obj4.selectItemToDelete("boAt");	
+		Assert.assertEquals(obj4.assertIf(),"Deleted");
 	}
 
 	@Test (description="Booking a flight and doing the date picker")
 	public void abookingflight() throws InterruptedException
 	{
-		Homepage obj = new Homepage(driver);
-		Loginpage obj1 = obj.clickSignin();
-		obj1.enterphonedetails("8301087380");
-		obj1.enterpassworddetails("Sreekuty");
+		HomePage obj = new HomePage(driver);
+		LoginPage obj1 = obj.clickSignin();
+		obj1.enterPhoneDetails("8301087380");
+		obj1.enterPasswordDetails("Sreekuty");
 		obj.clickMenu();
-		FlightsHomepage obj2 = obj.clickFlightsMenu();
+		FlightsHomePage obj2 = obj.clickFlightsMenu();
 		Thread.sleep(2000);
 		obj2.enterDetailsOfFromAirport("Kozhikode");
 		obj2.enterDetailsOfToAirport("Bengaluru"); 
@@ -126,8 +126,8 @@ public void checkingout() throws InterruptedException
 	@Test (description="Uploading files from Excel, Uploading files from PC,Scrolling down, Choosing from radio button and dropdown ")
 	public void uploadFiles() throws Exception
 	{
-		Homepage obj = new Homepage(driver);
-		Loginpage obj1 = obj.clickSignin();
+		HomePage obj = new HomePage(driver);
+		LoginPage obj1 = obj.clickSignin();
 		String path = "/D://data.XLSX";
 		String sh = "Sheet1";  
 		int rownum = ExcelData.getRowCount(path, sh);
@@ -135,15 +135,15 @@ public void checkingout() throws InterruptedException
 		for( int i=1;i<rownum;i++)
 		{ 
 			String user = ExcelData.getCellValue(path, sh, i, 0);
-			obj1.enterphonedetails(user);
+			obj1.enterPhoneDetails(user);
 			String pass = ExcelData.getCellValue(path, sh, i, 1);
-			obj1.enterpassworddetails(pass);
+			obj1.enterPasswordDetails(pass);
 		}		
-		Productresults obj2 = obj.searchItem("Photo frames with photo upload");
+		ProductResultsPage obj2 = obj.searchItem("Photo frames with photo upload");
 		ProductDisplayPage obj3 = obj2.selectItem("zig zag Personalized");		
 		obj3.tabHandling();
 		obj3.clickCustomiseButton(); 
-		Cartpage obj4 = obj3.fileUpload("\"D:\\screenshot.png\"");
+		CartPage obj4 = obj3.fileUpload("\"D:\\screenshot.png\"");
 		obj4.redirectToCart();
 		obj4.searchItem("Speakers");
 		obj2.selectItem("ZEBRONICS Zeb-Fame 5watts 2.0 Multi Media Speakers with AUX, USB and Volume Control (Black)");	
@@ -151,7 +151,7 @@ public void checkingout() throws InterruptedException
 		obj3.setQuantity(5);		
 		obj3.clickOnAddToCart();
 		obj4.addToCheckout();	
-		Checkoutpage obj5 =  new Checkoutpage(driver);
+		CheckoutPage obj5 =  new CheckoutPage(driver);
 		obj5.clickAnotherAddress();
 		obj5.clickOnUseThisAddress();
 		Assert.assertEquals(obj5.assertIfPayment(),"2 Select a payment method");

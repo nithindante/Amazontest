@@ -6,9 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
 
-public class FlightsDisplayPage extends AbstractComponents{				// The page that shows all the flights available 
+public class FlightsDisplayPage extends CommonMethods{				// The page that shows all the flights available 
 WebDriver driver;
 	public FlightsDisplayPage(WebDriver driver) { 
 		super(driver);
@@ -22,7 +22,7 @@ WebDriver driver;
 		
 	}
 	public FlightDetailsPage selectFlight(int num) {									// entering you want the "num" flight  in the list, i.e: if you want 1st flight from the flights displayed, it selects the 1st flight 
-		waittill(bookButton);
+		waitTill(bookButton);
 		getFlightsList().get(num).findElement(By.xpath("div[@class='_0d5ac290']")).click();		
 		return new FlightDetailsPage(driver);
 	}

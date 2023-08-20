@@ -3,12 +3,12 @@ package pageObjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
 
-public class Checkoutpage extends AbstractComponents{    // The page that represents Checkoutpage
+public class CheckoutPage extends CommonMethods{    // The page that represents Checkoutpage
 
 	WebDriver driver;
-	public Checkoutpage(WebDriver driver)
+	public CheckoutPage(WebDriver driver)
 	{
 		super(driver);
 		this.driver=driver; 
@@ -30,7 +30,7 @@ public class Checkoutpage extends AbstractComponents{    // The page that repres
 	By paymentConfirmation = By.xpath("//*[@id=\"payment\"]/div[3]/div/div/div[1]/div/h3");
 	public void enterNewAddress() 																// Click on new address 
 	{  
-		waittill(newAddressLink);
+		waitTill(newAddressLink);
 		driver.findElement(newAddressLink).click();
 	}
 	public void enterDetailsOfNewAddress(String fullnam,String phoneno,String pocode, String addline1, String addline2, String landma,String cities) throws InterruptedException {
@@ -45,7 +45,7 @@ public class Checkoutpage extends AbstractComponents{    // The page that repres
 		driver.findElement(city).sendKeys(cities);
 	}
 	public void clickUseThisAddress() {	 													//clicking on use this address
-		waittill(element);
+		waitTill(element);
 		driver.findElement(addressButton).click();
 	}
 	public void clickOnUseThisAddress() throws InterruptedException							//clicking on the next "use this addresss" so that it goes to next step. 
@@ -54,12 +54,12 @@ public class Checkoutpage extends AbstractComponents{    // The page that repres
 		driver.findElement(thisAddress).click();
 	} 
 	public void clickUseThisPayment() {														//clicking on use this Payment
-		waittill(paymentButton); 
+		waitTill(paymentButton); 
 		driver.findElement(paymentButton).click();		
 	}
 	public String assertIf()																// getting the text to get the confirmation that order is successfully confirmed
 	{		
-		waittill(confirmButton);
+		waitTill(confirmButton);
 		String title = driver.findElement(confirmButton).getText();
 		return title;
 	}
@@ -69,7 +69,7 @@ public class Checkoutpage extends AbstractComponents{    // The page that repres
 	}
 	public String assertIfPayment()															// getting the text to get the confirmation that payment is successfully displayed
 	{
-		waittill(paymentConfirmation);
+		waitTill(paymentConfirmation);
 		String title = driver.findElement(paymentConfirmation).getText();
 		return title;
 	}

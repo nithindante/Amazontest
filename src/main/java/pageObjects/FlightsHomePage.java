@@ -6,11 +6,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import AbstractComponents.AbstractComponents; 
+import commonMethods.CommonMethods; 
 
-public class FlightsHomepage extends AbstractComponents{				// the page which represents the Flights Home page
+public class FlightsHomePage extends CommonMethods{				// the page which represents the Flights Home page
 WebDriver driver;
-public FlightsHomepage(WebDriver driver)
+public FlightsHomePage(WebDriver driver)
 {
 	super(driver);	
 	this.driver=driver;
@@ -20,21 +20,21 @@ By toAirport = By.xpath("//input[@name='searchText']");
 By searchButton =  By.xpath("//button[contains(text(),'Search')]");
 By nextButton = By.xpath("//button[@class='_4a388932']"); 
 public void enterDetailsOfFromAirport(String departureairport) throws InterruptedException {  				// Creating method to enter details of From airport 
-	waittill(fromAirport);
+	waitTill(fromAirport);
 	driver.findElement(fromAirport).click();
 	Thread.sleep(3000);
 	driver.findElement(By.xpath("//input[@name=\"searchText\"]")).sendKeys(departureairport); 				//entering the desired airport 
 	By dropdown = By.xpath("//p[contains(text(),'"+departureairport+"')]");
-	waittill(dropdown);
+	waitTill(dropdown);
 	Thread.sleep(2000);
 	driver.findElement(dropdown).click();
 }  
 public void enterDetailsOfToAirport(String arrivalairport) throws InterruptedException						// Creating method to enter details of To airport
 {	
-	waittill(toAirport);
+	waitTill(toAirport);
 	driver.findElement(toAirport).sendKeys(arrivalairport); 
 	By dropdown = By.xpath("//p[contains(text(),'"+arrivalairport+"')]");									//entering the to airport 
-	waittill(dropdown);
+	waitTill(dropdown);
 	Thread.sleep(2000);
 	driver.findElement(dropdown).click();
 } 
