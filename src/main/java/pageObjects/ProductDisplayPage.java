@@ -12,93 +12,92 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import AbstractComponents.AbstractComponents;
+import commonMethods.CommonMethods;
 
-public class ProductDisplayPage extends AbstractComponents{ 
+public class ProductDisplayPage extends CommonMethods{ 
 WebDriver driver;
 public ProductDisplayPage(WebDriver driver)   
 {
 	super(driver);
 	this.driver = driver;                             
 } 
-By addtowishlist = By.id("add-to-wishlist-button-submit");           
-By viewwishlist = By.xpath("//a[text()='View Your List']");
-By cartbutton = By.id("add-to-cart-button");
-By gotocartpagebutton = By.id("nav-cart");
-By waitelement = By.xpath("//a[@title='Go to Cart']");
-By extracart = By.id("attach-sidesheet-view-cart-button");
-By extrapopup = By.id("attach-sidesheet-checkout-button");
-By customisebuton = By.id("gestalt-popover-button-announce");
-By uploadbutton = By.xpath("//label[contains(text(),'Upload')]");
-By chooseframe = By.xpath("//div[contains(text(),'Black Colour Frame')]");
-By chooseframesize = By.xpath("//div[contains(text(),'9.5\" x 13.5\" + Glossy Sheet')]");
-By customiseaddtocart = By.id("gc-add-to-cart");
-public void Tabhandling() 
-{ 
-	String pattern = driver.getWindowHandle();
-	Set<String> windows = driver.getWindowHandles();	
+By addToWishlist = By.id("add-to-wishlist-button-submit");           
+By viewWishlist = By.xpath("//a[text()='View Your List']");
+By cartButton = By.id("add-to-cart-button");
+By cartPageButton = By.id("nav-cart");
+By waitElement = By.xpath("//a[@title='Go to Cart']");
+By extraCart = By.id("attach-sidesheet-view-cart-button"); 
+By extraPopup = By.id("attach-sidesheet-checkout-button");
+By customiseButon = By.id("gestalt-popover-button-announce");
+By uploadButton = By.xpath("//label[contains(text(),'Upload')]");
+By chooseFrame = By.xpath("//div[contains(text(),'Black Colour Frame')]");
+By chooseFramesize = By.xpath("//div[contains(text(),'9.5\" x 13.5\" + Glossy Sheet')]");
+By customiseAddToCart = By.id("gc-add-to-cart");
+public void tabHandling() 														//Switching windows 
+{ 	
+	String pattern = driver.getWindowHandle();									//Getting parent window
+	Set<String> windows = driver.getWindowHandles();					
 	for(String s:windows)
 	{
-		if(!s.contentEquals(pattern))			 								//when the tab is not parentwindow
+		if(!s.contentEquals(pattern))			 								//Comparing and if not parent window, Switch to Next window
 		{  
 			driver.switchTo().window(s); 
 		}
 	} 
 }
-public void clickonaddtocart() throws InterruptedException {	
-	waittill(cartbutton);
-	Thread.sleep(2000);
-	driver.findElement(cartbutton).click();	
-}
-public void addtowishlist()
+public void clickOnAddToCart() throws InterruptedException {					//Clicking on add to cart 
+	waitTill(cartButton);
+	driver.findElement(cartButton).click();	
+}	
+public void addToWishlist()														//Clicking on Add to Wishlist
 {
-	driver.findElement(addtowishlist).click();
+	driver.findElement(addToWishlist).click();
 }
-public Wishlistpage viewwishlist() {
+public WishlistPage viewWishlist() {											
+	waitTill(viewWishlist);
+	driver.findElement(viewWishlist).click();
+	return new WishlistPage(driver); 
+}
+public void goToCart()
+{
+	driver.findElement(cartPageButton).click();
+}
+public void clickOnExtraCart() {												//if the pop up opens up once you add a product to cart
+	waitTill(extraCart);
+	driver.findElement(extraCart).click();	
+} 
+public void clickOnExtraPopupToCheckout()										//Clicking on the Checkout button in the extra popup 
+{
+	waitTill(extraPopup);
 	
-	waittill(viewwishlist);
-	driver.findElement(viewwishlist).click();
-	return new Wishlistpage(driver); 
+	driver.findElement(extraPopup).click();
 }
-public void gotocart()
-{
-	driver.findElement(gotocartpagebutton).click();
-}
-public void extracart() {
-	waittill(extracart);
-	driver.findElement(extracart).click();	
-}
-public void extrapopuptocheckout()
-{
-	waittill(extrapopup);
-	driver.findElement(extrapopup).click();
-}
-public void customisebutton() throws InterruptedException
-{
-	driver.findElement(customisebuton).click();
-	waittill(uploadbutton);
+public void clickCustomiseButton() throws InterruptedException
+{ 
+	driver.findElement(customiseButon).click();
+	waitTill(customiseButon);
 	Thread.sleep(2000);
-	driver.findElement(uploadbutton).click();
+	driver.findElement(uploadButton).click();
 }
-public Cartpage fileupload(String filepath) throws AWTException, InterruptedException {
+public CartPage fileUpload(String filepath) throws AWTException, InterruptedException {			// Creating the method to upload image into our Website and cusatomise the photo frame 
 	StringSelection str =  new StringSelection(filepath);
-	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str,null); //copied the contents to Clipboard
-	Robot rob = new Robot();
-	rob.delay(3000); 
+	Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str,null); 					//copied the contents to Clipboard 
+	Robot rob = new Robot();																	//Created Robots class, so that we use the following action: Control+ V and Enter
+	rob.delay(3000);  
 	rob.keyPress(KeyEvent.VK_CONTROL);
 	rob.keyPress(KeyEvent.VK_V);
 	rob.keyRelease(KeyEvent.VK_V);
 	rob.keyRelease(KeyEvent.VK_CONTROL);
 	rob.keyPress(KeyEvent.VK_ENTER);
-	Thread.sleep(6000);
-	driver.findElement(customiseaddtocart).click();
-	return new Cartpage(driver);
+	waitTill(customiseAddToCart);
+	driver.findElement(customiseAddToCart).click();
+	return new CartPage(driver);
 }
 
-public void setquantity()
+public void setQuantity(int num)																		//Selecting the Quantity via dropdown
 {
 	WebElement option = driver.findElement(By.id("quantity"));
 	Select var = new Select(option);
-	var.selectByIndex(5);
+	var.selectByIndex(num);
 }
 }
